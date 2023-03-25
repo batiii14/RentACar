@@ -26,9 +26,5 @@ namespace API.Controllers
             return Ok(_brandService.GetAll());
         }
 
-        
-
-       
-
     }
 }

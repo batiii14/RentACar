@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Entities.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.Concretes
 {
-    public class Model
+    public class Model:IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

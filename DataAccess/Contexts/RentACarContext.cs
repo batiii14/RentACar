@@ -1,4 +1,4 @@
-﻿using Entities;
+﻿using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,5 +16,6 @@ namespace DataAccess.Contexts
         }
         
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Model> Models { get; set; }
     }
 }

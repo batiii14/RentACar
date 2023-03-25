@@ -1,6 +1,6 @@
 ﻿using Business.Abstracts;
 using DataAccess.Abstracts;
-using Entities;
+using Entities.Concretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace Business.Concretes
 
         public List<Model> GetAll()
         {
-            return _modelDal.GetAll();
+            return _modelDal.GetList().ToList();
         }
 
     }
