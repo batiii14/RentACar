@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IBrandService, BrandManager>();
 builder.Services.AddScoped<IBrandDal, BrandDal>();
+builder.Services.AddScoped<IModelService,ModelManager>();
+builder.Services.AddScoped<IModelDal, ModelDal>();
 
 var app = builder.Build();
 
