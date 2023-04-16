@@ -70,13 +70,16 @@ namespace Business.Concretes
 
         public List<GetAllBrandResponse> GetAll()
         {
-            List<Brand> brands = _brandDal.GetList()?.ToList() ?? new List<Brand>();
+            List<Brand> brands = _brandDal.GetAllWithModel().ToList();
+            
             List<GetAllBrandResponse> brandResponses = new List<GetAllBrandResponse>();
 
             foreach (Brand brand in brands)
             {
                 GetAllBrandResponse responseItem = new GetAllBrandResponse();
-                responseItem.Models = brand.Models;
+
+                
+
                 responseItem.Id = brand.Id;
                 responseItem.Name = brand.Name;
                 brandResponses.Add(responseItem);

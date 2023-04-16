@@ -55,7 +55,7 @@ namespace Business.Concretes
 
         public List<GetAllModelResponse> GetAll()
         {
-            List<Model> models = _modelDal.GetList()?.ToList()?? new List<Model>();
+            List<Model> models = _modelDal.GetAllWithBrand().ToList();
             List<GetAllModelResponse> modelResponses = new List<GetAllModelResponse>();
             foreach(Model model in models)
             {
@@ -64,6 +64,7 @@ namespace Business.Concretes
                 responseItem.Name = model.Name;
                 responseItem.DailyPrice= model.DailyPrice;
                 responseItem.BrandId= model.BrandId;
+                responseItem.BrandName = model.Brand.Name;
                 modelResponses.Add(responseItem);
             }
             return modelResponses;

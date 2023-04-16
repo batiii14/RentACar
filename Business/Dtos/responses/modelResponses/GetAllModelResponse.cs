@@ -12,6 +12,7 @@ namespace Business.Dtos.Responses.model
         public string Name { get; set; }
         public double DailyPrice { get; set; }
         public int BrandId { get; set; }
+        public string BrandName { get; set;}
        
     }
 }

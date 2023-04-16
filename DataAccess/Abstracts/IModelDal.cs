@@ -10,6 +10,7 @@ namespace DataAccess.Abstracts
 {
     public interface IModelDal:IEntityRepository<Model>
     {
-        
+        List<Model> GetAllWithBrand();
+        Model GetAllWithBrand(int id);
     }
 }
