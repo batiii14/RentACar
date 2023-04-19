@@ -25,11 +25,7 @@ namespace Business.Concretes
             rules = new BrandBusinessRules(_brandDal);
         }
 
-        //public List<Brand> GetAll()
-        //{
-
-        //    return _brandDal.GetList().ToList();
-        //}
+       
 
         public void Add(CreateBrandRequest createBrandRequest)
         {
@@ -59,15 +55,14 @@ namespace Business.Concretes
         public GetBrandByIdResponse GetById(int id)
         {
             GetBrandByIdResponse getBrandByIdResponse= new GetBrandByIdResponse();
-            Brand brand= _brandDal.Get(p => p.Id == id);
+            Brand brand = _brandDal.GetAllWithModel(id);
             getBrandByIdResponse.Name = brand.Name;
-            getBrandByIdResponse.Id=brand.Id;
+            getBrandByIdResponse.Id = brand.Id;
+            getBrandByIdResponse.Models = brand.Models;
+           
             return getBrandByIdResponse;
 
-
-
         }
-
         public List<GetAllBrandResponse> GetAll()
         {
             List<Brand> brands = _brandDal.GetAllWithModel().ToList();
@@ -77,9 +72,7 @@ namespace Business.Concretes
             foreach (Brand brand in brands)
             {
                 GetAllBrandResponse responseItem = new GetAllBrandResponse();
-
-                
-
+                responseItem.Models = brand.Models;
                 responseItem.Id = brand.Id;
                 responseItem.Name = brand.Name;
                 brandResponses.Add(responseItem);

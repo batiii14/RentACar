@@ -73,9 +73,11 @@ namespace Business.Concretes
         public GetModelByIdResponse GetModelById(int id)
         {
             GetModelByIdResponse getModelByIdResponse=new GetModelByIdResponse();  
-            Model model=_modelDal.Get(p=>p.Id == id);
+            Model model=_modelDal.GetAllWithBrand(id);
             getModelByIdResponse.Id = id;
             getModelByIdResponse.ModelName= model.Name;
+            getModelByIdResponse.BrandId= model.BrandId;
+            getModelByIdResponse.BrandName= model.Brand.Name;
 
             return getModelByIdResponse;
         }
