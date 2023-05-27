@@ -18,9 +18,17 @@ builder.Services.AddScoped<IBrandDal, BrandDal>();
 builder.Services.AddScoped<IModelService,ModelManager>();
 builder.Services.AddScoped<IModelDal, ModelDal>();
 
+builder.Services.AddCors(opt => opt.AddDefaultPolicy(p => { p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); }));
 
+ 
 
 var app = builder.Build();
+
+app.UseCors(opt =>
+                opt.WithOrigins("http://localhost:4200")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod()
+                   .AllowCredentials());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
